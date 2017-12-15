@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>scene test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.0/aframe-master.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <a-scene>
+    	<a-assets>
+
+        <!-- office -->
+        <a-asset-item id="office-obj" src="assets/models/office.obj"></a-asset-item>
+        <img id="office-texture" src="assets/textures/office.jpg">
+        <!-- office -->
+        <!-- floor-wood -->
+        <a-asset-item id="floor-obj" src="assets/models/floor.obj"></a-asset-item>
+        <img id="floor-texture" src="assets/textures/floor.jpg">
+        <!-- floor-wood -->
+        <!-- chair -->
+        <a-asset-item id="chair-obj" src="assets/models/chair.obj"></a-asset-item>
+        <img id="chair-texture" src="assets/textures/chair.jpg">
+        <!-- chair -->
+        <!-- lamp -->
+        <a-asset-item id="lamp-obj" src="assets/models/lamp.obj"></a-asset-item>
+        <img id="lamp-texture" src="assets/textures/lamp.jpg">
+        <!-- lamp -->
+
+    	</a-assets>
+
+<!-- ******************************************************************* -->
+<!-- ******************************************************************* -->
+      <!-- box -->
+      <!-- <a-box id="myBox" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box> -->
+
+      <!-- floor-wood -->
+      <a-entity obj-model="obj: #floor-obj"
+                material="src: #floor-texture ; repeat:2 2"
+                position="0 0 0"
+                scale="0.1 0.1 0.1"
+                shadow="receive:true">
+      </a-entity>
+
+      <!-- office -->
+      <a-entity id="myOffice" 
+                obj-model="obj: #office-obj" 
+                material="src: #office-texture"
+                position="-1 0 -3"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+
+      <!-- chair -->
+      <a-entity id="myChair" 
+                obj-model="obj: #chair-obj" 
+                material="src: #chair-texture"
+                position="-1 0 -2.5"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+
+      <!-- lamp -->
+      <a-entity id="myLamp" 
+                obj-model="obj: #lamp-obj" 
+                material="src: #lamp-texture"
+                position="0.1 0 -3"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+
+      <!-- sky -->
+      <a-sky color="#ECECEC"></a-sky>
+
+      <!-- camera's cursor -->
+      <a-camera>
+        <a-cursor color="#ff0000"/>
+      </a-camera>
+    </a-scene>
+
+
+  </body>
+</html>
