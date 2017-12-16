@@ -10,7 +10,7 @@
     </style>
   </head>
   <body>
-    <a-scene>
+    <a-scene generate-items>
     	<a-assets>
 
         <!-- office -->
@@ -45,8 +45,9 @@
                 shadow="receive:true">
       </a-entity>
 
+  <a-entity id="room-layout-container"> 
       <!-- office -->
-      <a-entity id="myOffice" 
+      <a-entity id="table" 
                 obj-model="obj: #office-obj" 
                 material="src: #office-texture"
                 position="-1 0 -3"
@@ -55,7 +56,7 @@
       </a-entity>
 
       <!-- chair -->
-      <a-entity id="myChair" 
+      <a-entity id="chair" 
                 obj-model="obj: #chair-obj" 
                 material="src: #chair-texture"
                 position="-1 0 -2.5"
@@ -64,13 +65,15 @@
       </a-entity>
 
       <!-- lamp -->
-      <a-entity id="myLamp" 
+      <a-entity id="lamp" 
                 obj-model="obj: #lamp-obj" 
                 material="src: #lamp-texture"
                 position="0.1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
+
+  </a-entity>
 
       <!-- sky -->
       <a-sky color="#ECECEC"></a-sky>
