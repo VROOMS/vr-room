@@ -10,7 +10,7 @@
     </style>
   </head>
   <body>
-    <a-scene generate-items>
+    <a-scene>
     	<a-assets>
 
         <!-- office -->
@@ -45,7 +45,7 @@
                 shadow="receive:true">
       </a-entity>
 
-  <a-entity id="room-layout-container"> 
+  <a-entity id="room-layout-container" position-items> 
       <!-- office -->
       <a-entity id="table" 
                 obj-model="obj: #office-obj" 
@@ -74,6 +74,7 @@
       </a-entity>
 
   </a-entity>
+  <a-entity room room-controller></a-entity>
 
       <!-- sky -->
       <a-sky color="#ECECEC"></a-sky>
