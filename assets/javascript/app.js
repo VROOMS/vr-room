@@ -120,7 +120,7 @@ $(document).ready(function(){
 				console.log("itemID",item.id)
 				var el = document.getElementById(item.id)
 				//transform data from canvas coordinate system to three.js coordinate system
-				var scalar = .01;
+				var scalar = 0.02;
 				var xOffset = roomRatio.ratio.x/2;
 				var zOffset = roomRatio.ratio.y/2;
 				var xPosition = (item.position.x - xOffset)*scalar;
@@ -154,9 +154,10 @@ $(document).ready(function(){
 		},
 		scaleRoom: function(e) {
 			var roomRatio = e.detail.roomData[0].ratio;
+			var scalar = 0.02
 			this.el.setAttribute("room",{
-				width: roomRatio.x/100,
-				depth: roomRatio.y/100
+				width: roomRatio.x*scalar,
+				depth: roomRatio.y*scalar
 			})
 
 		}
