@@ -32,28 +32,7 @@ $(document).ready(function(){
 	dummyData =  JSON.stringify(dummyData);
 
 
-	AFRAME.registerComponent("position-items",{
-		init: function() {
-			this.positionItems = this.positionItems.bind(this);
-			var data = JSON.parse(dummyData).items;
-			this.el.sceneEl.addEventListener("item-data-loaded",this.positionItems) ;
-			this.el.emit("item-data-loaded", {
-				items: data
-			})
-		},
-		positionItems: function(e) {
-			var data = e.detail.items
-			var self = this;
-			data.forEach(function(item){
-				var el = self.el.querySelector("#" + item.id);
-				el.setAttribute("position",item.position);
-				el.setAttribute("visible",true)
 
-			})
-		}
-
-
-	});
 
 	AFRAME.registerComponent("room-controller",{
 		init: function() {
@@ -96,7 +75,94 @@ $(document).ready(function(){
 				width: width
 			})
 		}
+	});
+
+	AFRAME.registerComponent("firebase-sync",{
+		init: function() {
+		   var self = this;
+		   var config = {
+		      apiKey: "AIzaSyBx-TRdttTPiVKW_8yQ0OdMDYwxt2tORNI",
+		      authDomain: "frameyourroom-110ed.firebaseapp.com",
+		      databaseURL: "https://frameyourroom-110ed.firebaseio.com",
+		      projectId: "frameyourroom-110ed",
+		      storageBucket: "frameyourroom-110ed.appspot.com",
+		      messagingSenderId: "313702378796"
+	  		};
+    		firebase.initializeApp(config);
+    		this.database = firebase.database();
+
+   			this.roomDataRef = this.database.ref("-L0lnD2HZtHWqW9cmZYk");
+   			this.roomDataRef.on("value", function(snapshot){
+	   			var roomData = snapshot.val()
+   				self.el.emit("firebase-room-data",{
+   					roomData: roomData
+   				})
+   			});
+
+		}
+
+	});
+
+	AFRAME.registerComponent("position-items",{
+		init: function() {
+			this.positionItems = this.positionItems.bind(this);
+			// var data = JSON.parse(dummyData).items;
+			this.el.sceneEl.addEventListener("firebase-room-data",this.positionItems);
+
+		},
+		positionItems: function(e) {
+			var self = this;
+			var roomData = e.detail.roomData;
+			console.log("roomData",roomData)
+			var roomRatio = roomData[0];
+			roomData.forEach(function(item, idx){
+				if(idx===0) return; //skip first idx which is room ratio data
+				console.log("itemID",item.id)
+				var el = document.getElementById(item.id)
+				//transform data from canvas coordinate system to three.js coordinate system
+				var scalar = .01;
+				var xOffset = roomRatio.ratio.x/2;
+				var zOffset = roomRatio.ratio.y/2;
+				var xPosition = (item.position.x - xOffset)*scalar;
+				var zPosition = (item.position.y - zOffset)*scalar;
+				var position = {
+					x: xPosition,
+					y: 0,
+					z: zPosition
+				}
+				var degreeRotation =  item.degree
+				el.setAttribute("position",position);
+				el.setAttribute("rotation",{
+					x: 0,
+					y: degreeRotation,
+					z: 0
+				})
+				el.setAttribute("visible",true)
+			})
+
+
+
+		}
+
+
+	});
+
+	AFRAME.registerComponent("scale-room",{
+		init: function() {
+			this.scaleRoom = this.scaleRoom.bind(this);
+			this.el.sceneEl.addEventListener("firebase-room-data",this.scaleRoom)
+		},
+		scaleRoom: function(e) {
+			var roomRatio = e.detail.roomData[0].ratio;
+			this.el.setAttribute("room",{
+				width: roomRatio.x/100,
+				depth: roomRatio.y/100
+			})
+
+		}
 	})
+
+
 
 
 });
