@@ -112,17 +112,25 @@ $(document).ready(function(){
 		},
 		positionItems: function(e) {
 			var self = this;
+			//set all furniture invisible, to be set visible if in roomData array
+			var furnitureElements =  this.el.children;
+			for(var i=0; i<furnitureElements.length;i++) {
+				furnitureElements[i].setAttribute("visible",false)
+			}
 			var roomData = e.detail.roomData;
 			console.log("roomData",roomData)
 			var roomRatio = roomData[0];
 			roomData.forEach(function(item, idx){
 				if(idx===0) return; //skip first idx which is room ratio data
+
 				console.log("itemID",item.id)
 				var el = document.getElementById(item.id)
+				el.setAttribute("visible",true)
+
 				//transform data from canvas coordinate system to three.js coordinate system
 				var scalar = 0.02;
-				var xOffset = roomRatio.ratio.x/2;
-				var zOffset = roomRatio.ratio.y/2;
+				var xOffset = roomRatio.size.width/2;
+				var zOffset = roomRatio.size.height/2;
 				var xPosition = (item.position.x - xOffset)*scalar;
 				var zPosition = (item.position.y - zOffset)*scalar;
 				var position = {
@@ -137,7 +145,6 @@ $(document).ready(function(){
 					y: degreeRotation,
 					z: 0
 				})
-				el.setAttribute("visible",true)
 			})
 
 
@@ -153,16 +160,15 @@ $(document).ready(function(){
 			this.el.sceneEl.addEventListener("firebase-room-data",this.scaleRoom)
 		},
 		scaleRoom: function(e) {
-			var roomRatio = e.detail.roomData[0].ratio;
+			var roomRatio = e.detail.roomData[0].size;
 			var scalar = 0.02
 			this.el.setAttribute("room",{
-				width: roomRatio.x*scalar,
-				depth: roomRatio.y*scalar
+				width: roomRatio.width*scalar,
+				depth: roomRatio.height*scalar
 			})
 
 		}
 	})
-
 
 
 
