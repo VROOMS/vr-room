@@ -1,49 +1,4 @@
 $(document).ready(function(){
-	var dummyData = {
-	roomRatio: {
-		x: 10,
-		y: 10
-	},
-	items:	[
-			{
-				id: "chair",
-				position: {
-					x: 0,
-					z: -2
-				}
-			},{
-				id: "table",
-				position: {
-					x: 1,
-					z: -3
-				}
-			},{
-				id: "lamp",
-				position: {
-					x: 2,
-					z: -4
-				}
-			}
-		]
-
-	}
-
-
-	dummyData =  JSON.stringify(dummyData);
-
-
-
-
-	AFRAME.registerComponent("room-controller",{
-		init: function() {
-			var roomRatio = JSON.parse(dummyData).roomRatio;
-			this.el.setAttribute("room",{
-				depth: roomRatio.y,
-				width: roomRatio.x
-			})
-		},
-		dependencies: ["room"]
-	})
 
 	AFRAME.registerComponent("room",{
 		schema: {
