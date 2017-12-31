@@ -51,9 +51,27 @@
         <!-- karl-sofa -->
         <a-asset-item id="karl-sofa-model" src="assets/models/KARL_Sofa/KARLS_Sofa.obj"></a-asset-item>
         <img id="karl-sofa-tex" src="assets/models/KARL_Sofa/KARLS_sofa_color.jpg">
-
+        <!-- moto-uplighter -->
         <a-asset-item id="moto-uplighter-model" src="assets/models/MOTO_Uplighter/MOTO_Uplighter.obj"></a-asset-item>
         <img id="moto-uplighter-tex" src="assets/models/MOTO_Uplighter/MOTO_Uplighter.jpg">
+        
+        <!-- picture-frame-a -->
+        <a-asset-item id="picture-frame-a-model" src="assets/models/Picture_Frame_A/PictureFrameA.obj"></a-asset-item>
+        <img id="picture-frame-a-tex" src="assets/models/Picture_Frame_A/pictureFrameA.jpg">
+        
+        <!-- pot-uplighter -->
+        <a-asset-item id="pot-uplighter-model" src="assets/models/POT_Uplighter/POT_Uplighter.obj"></a-asset-item>
+        <img id="pot-uplighter-tex" src="assets/models/POT_Uplighter/POT_Uplighter.jpg">
+        
+        <!-- vim-sofa -->
+        <a-asset-item id="vim-sofa-model" src="assets/models/VIM_Sofa/VIM_Sofa.obj"></a-asset-item>
+        <img id="vim-sofa-tex" src="assets/models/VIM_Sofa/VIM_sofa_color.jpg">
+
+        
+
+        
+
+        
 
 
 
@@ -80,11 +98,9 @@
                 scale="0.1 0.1 0.1"
                 shadow="receive:true">
       </a-entity>
-<!-- position-items
- -->  
- <a-entity id="room-layout-container" > 
+ <a-entity id="room-layout-container" position-items> 
       <!-- office -->
-      <a-entity id="Sauder Desk" 
+      <a-entity id="sauder-desk" 
                 obj-model="obj: #office-obj" 
                 material="src: #office-texture"
                 position="-1 0 -3"
@@ -93,7 +109,7 @@
       </a-entity>
 
       <!-- chair -->
-      <a-entity id="Mayline Chair" 
+      <a-entity id="mayline-chair" 
                 obj-model="obj: #chair-obj" 
                 material="src: #chair-texture"
                 position="-1 0 -2.5"
@@ -101,15 +117,7 @@
                 shadow="receive: false">             
       </a-entity>
 
-      <!-- lamp -->
-      <a-entity id="lamp" 
-                obj-model="obj: #lamp-obj" 
-                material="src: #lamp-texture"
-                position="0.1 0 -3"
-                scale="0.1 0.1 0.1"
-                shadow="receive: false">             
-      </a-entity>
-      <a-entity id="bil-Bookcase" 
+      <a-entity id="bil-bookcase" 
                 obj-model="obj: #BIL-Bookcase-model;" 
                 material="src: #lamp-texture"
                 position="0.1 0 -3"
@@ -153,6 +161,32 @@
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
+
+      <a-entity id="picture-frame-a" 
+                obj-model="obj: #picture-frame-a-model;" 
+                material="src: #picture-frame-a-tex"
+                position="0.1 0 -3"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+
+      <a-entity id="pot-uplighter" 
+                obj-model="obj: #pot-uplighter-model" 
+                material="src: #pot-uplighter-tex"
+                position="0.1 0 -3"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+
+      <a-entity id="vim-sofa" 
+                obj-model="obj: #vim-sofa-model" 
+                material="src: #vim-sofa-tex"
+                position="0.1 0 -3"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+        
+
 
   </a-entity>
   <a-entity id="room" room room-controller scale-room></a-entity>
