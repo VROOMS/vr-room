@@ -83,11 +83,19 @@ $(document).ready(function(){
 				el.setAttribute("visible",true)
 
 				//transform data from canvas coordinate system to three.js coordinate system
-				var scalar = 0.02;
-				var xOffset = roomRatio.size.width/2;
-				var zOffset = roomRatio.size.height/2;
-				var xPosition = (item.position.x - xOffset)*scalar;
-				var zPosition = (item.position.y - zOffset)*scalar;
+
+				var scalar = 0.01;
+				var xRoomOffset = roomRatio.size.width/2;
+				var zRoomOffset = roomRatio.size.height/2;
+
+				var dimensionArr = item.dimensions.match(/\d+\s/g);
+				var xItemOffset = dimensionArr[0]/2;
+				var yItemOffset = dimensionArr[1]/2;
+
+
+
+				var xPosition = (item.position.x - xRoomOffset + xItemOffset)*scalar;
+				var zPosition = (item.position.y - zRoomOffset + yItemOffset)*scalar;
 				var position = {
 					x: xPosition,
 					y: 0,
@@ -97,7 +105,7 @@ $(document).ready(function(){
 				el.setAttribute("position",position);
 				el.setAttribute("rotation",{
 					x: 0,
-					y: degreeRotation,
+					y: degreeRotation * -1,
 					z: 0
 				})
 			})
@@ -116,7 +124,7 @@ $(document).ready(function(){
 		},
 		scaleRoom: function(e) {
 			var roomRatio = e.detail.roomData[0].size;
-			var scalar = 0.02
+			var scalar = 0.01
 			this.el.setAttribute("room",{
 				width: roomRatio.width*scalar,
 				depth: roomRatio.height*scalar
