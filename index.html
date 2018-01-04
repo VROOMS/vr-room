@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>scene test</title>
+    <title>VR Room</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.0/aframe-master.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
@@ -66,19 +66,24 @@
         <!-- vim-sofa -->
         <a-asset-item id="vim-sofa-model" src="assets/models/VIM_Sofa/VIM_Sofa.obj"></a-asset-item>
         <img id="vim-sofa-tex" src="assets/models/VIM_Sofa/VIM_sofa_color.jpg">
+  
+        <!-- mel-tv-unit -->
+        <a-asset-item id="mel-tv-unit-model" src="assets/models/MEL_TV_unit/MEL_TV_unit.obj"></a-asset-item>
+        <img id="mel-tv-unit-tex" src="assets/models/MEL_TV_unit/MEL_TV_unit_color.jpg">
 
+        <!-- nes-closet -->
+        <a-asset-item id="nes-closet-model" src="assets/models/NES_Closet/NES_closet.obj"></a-asset-item>
+        <img id="nes-closet-tex" src="assets/models/NES_Closet/NES_closet_color.jpg">
+        <!-- picture-frame-b -->
+        <a-asset-item id="picture-frame-b-model" src="assets/models/Picture_Frame_B/PictureFrameB.obj"></a-asset-item>
+        <img id="picture-frame-b-tex" src="assets/models/Picture_Frame_B/pictureFrameB.jpg">
         
+        <!-- SNES_Bed -->
+        <a-asset-item id="snes-bed-model" src="assets/models/SNES_Bed/SNES_Bed.obj"></a-asset-item>
+        <img id="snes-bed-tex" src="assets/models/SNES_Bed/SNES_Bed_color.jpg">
 
-        
-
-        
-
-
-
-
-
-
-
+        <a-asset-item id="stock-rug-model" src="assets/models/STOCK_Rug/STOCK_Rug.obj"></a-asset-item>
+        <img id="stock-rug-tex" src="assets/models/STOCK_Rug/STOCK_Rug_color.jpg">
 
 
 
@@ -101,6 +106,7 @@
  <a-entity id="room-layout-container" position-items> 
       <!-- office -->
       <a-entity id="sauder-desk" 
+                visible="false"
                 obj-model="obj: #office-obj" 
                 material="src: #office-texture"
                 position="-1 0 -3"
@@ -110,22 +116,23 @@
 
       <!-- chair -->
       <a-entity id="mayline-chair" 
+                visible="false"
                 obj-model="obj: #chair-obj" 
                 material="src: #chair-texture"
-                position="-1 0 -2.5"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
 
-      <a-entity id="bil-bookcase" 
+      <a-entity id="bil-bookcase"                 
+                visible="false"
                 obj-model="obj: #BIL-Bookcase-model;" 
                 material="src: #lamp-texture"
-                position="0.1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
 
       <a-entity id="brim-closet" 
+                visible="false"
                 obj-model="obj: #BRIM-Closet-model;" 
                 material="src: #BRIM-Closet-tex"
                 position="0.1 0 -3"
@@ -134,59 +141,95 @@
       </a-entity>
 
       <a-entity id="ham-rug" 
+                visible="false"
                 obj-model="obj: #ham-rug-model;" 
                 material="src: #ham-rug-tex"
-                position="0.1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
       <a-entity id="kal-shelf" 
+                visible="false"
                 obj-model="obj: #kal-shelf-model;" 
                 material="src: #kal-shelf-tex"
-                position="0.1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
       <a-entity id="karl-sofa" 
+                visible="false"
                 obj-model="obj: #karl-sofa-model;" 
                 material="src: #karl-sofa-tex"
-                position="0.1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
       <a-entity id="moto-uplighter" 
+                visible="false"
                 obj-model="obj: #moto-uplighter-model;" 
                 material="src: #moto-uplighter-tex"
-                position="0.1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
 
       <a-entity id="picture-frame-a" 
+                visible="false"
                 obj-model="obj: #picture-frame-a-model;" 
                 material="src: #picture-frame-a-tex"
-                position="0.1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
 
       <a-entity id="pot-uplighter" 
+                visible="false"
                 obj-model="obj: #pot-uplighter-model" 
                 material="src: #pot-uplighter-tex"
-                position="0.1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
 
       <a-entity id="vim-sofa" 
+                visible="false"
                 obj-model="obj: #vim-sofa-model" 
                 material="src: #vim-sofa-tex"
-                position="0.1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
-        
 
+      <a-entity id="mel-tv-unit" 
+                visible="false"
+                obj-model="obj: #mel-tv-unit-model" 
+                material="src: #mel-tv-unit-tex"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+
+      <a-entity id="nes-closet" 
+                visible="false"
+                obj-model="obj: #nes-closet-model" 
+                material="src: #nes-closet-tex"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+      <a-entity id="picture-frame-b" 
+                visible="false"
+                obj-model="obj: #picture-frame-b-model" 
+                material="src: #picture-frame-b-tex"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+      <a-entity id="snes-bed" 
+                visible="false"
+                obj-model="obj: #snes-bed-model" 
+                material="src: #snes-bed-tex"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+      <a-entity id="stock-rug" 
+                visible="false"
+                obj-model="obj: #stock-rug-model" 
+                material="src: #stock-rug-tex"
+                scale="0.1 0.1 0.1"
+                shadow="receive: false">             
+      </a-entity>
+      
 
   </a-entity>
   <a-entity id="room" room scale-room></a-entity>
