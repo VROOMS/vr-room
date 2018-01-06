@@ -89,8 +89,8 @@ $(document).ready(function(){
 				var zRoomOffset = roomRatio.size.height/2;
 
 				var dimensionArr = item.dimensions.match(/\d+\s/g);
-				var xItemOffset = dimensionArr[0]/2;
-				var yItemOffset = dimensionArr[1]/2;
+				var xItemOffset = parseFloat(dimensionArr[0])/2;
+				var yItemOffset = parseFloat(dimensionArr[1])/2;
 
 
 

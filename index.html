@@ -17,16 +17,16 @@
     	<a-assets>
 
         <!-- office -->
-        <a-asset-item id="office-obj" src="assets/models/office.obj"></a-asset-item>
-        <img id="office-texture" src="assets/textures/office.jpg">
+        <a-asset-item id="sauder-desk-model" src="assets/models/sauder_desk/desk.obj"></a-asset-item>
+        <img id="sauder-desk-tex" src="assets/textures/office.jpg">
         <!-- office -->
         <!-- floor-wood -->
         <a-asset-item id="floor-obj" src="assets/models/floor.obj"></a-asset-item>
         <img id="floor-texture" src="assets/textures/floor.jpg">
         <!-- floor-wood -->
         <!-- chair -->
-        <a-asset-item id="chair-obj" src="assets/models/chair.obj"></a-asset-item>
-        <img id="chair-texture" src="assets/textures/chair.jpg">
+        <a-asset-item id="mayline-chair-obj" src="assets/models/mayline_chair/chair.obj"></a-asset-item>
+        <img id="mayline-chair-texture" src="assets/textures/chair.jpg">
         <!-- chair -->
         <!-- lamp -->
         <a-asset-item id="lamp-obj" src="assets/models/lamp.obj"></a-asset-item>
@@ -107,8 +107,8 @@
       <!-- office -->
       <a-entity id="sauder-desk" 
                 visible="false"
-                obj-model="obj: #office-obj" 
-                material="src: #office-texture"
+                obj-model="obj: #sauder-desk-model" 
+                material="src: #sauder-desk-tex"
                 position="-1 0 -3"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
@@ -117,8 +117,8 @@
       <!-- chair -->
       <a-entity id="mayline-chair" 
                 visible="false"
-                obj-model="obj: #chair-obj" 
-                material="src: #chair-texture"
+                obj-model="obj: #mayline-chair-obj" 
+                material="src: #mayline-chair-texture"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
@@ -126,7 +126,7 @@
       <a-entity id="bil-bookcase"                 
                 visible="false"
                 obj-model="obj: #BIL-Bookcase-model;" 
-                material="src: #lamp-texture"
+                material="src: #BIL-Bookcase-tex"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
