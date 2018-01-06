@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>VR Room</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.0/aframe-master.js"></script>
+     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -143,7 +143,7 @@
       <a-entity id="ham-rug" 
                 visible="false"
                 obj-model="obj: #ham-rug-model;" 
-                material="src: #ham-rug-tex"
+                material="src: #ham-rug-tex; repeat:2 2"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
@@ -225,22 +225,29 @@
       <a-entity id="stock-rug" 
                 visible="false"
                 obj-model="obj: #stock-rug-model" 
-                material="src: #stock-rug-tex"
+                material="src: #stock-rug-tex; repeat:2 2"
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
       
 
   </a-entity>
-  <a-entity id="room" room scale-room></a-entity>
+  <a-entity id="room" room material="src: assets/textures/wall.jpg" scale-room></a-entity>
+
+
+  <a-entity id="directionalLight" light="type: directional; color: #BBB; intensity: 0.3; castShadow:true" position="3 30 4" rotation="0 0 0"></a-entity>
+  <a-entity id="directionalLight" light="type: directional; color: #BBB; intensity: 0.3; castShadow:true" position="-40 400 -50" rotation="0 0 0"></a-entity>
+
+  <a-entity light="type: ambient; color: #BBB; intensity:0.9" position="0 0 0"></a-entity>
+
+  <a-entity light="type: point; color: #BBB; intensity:0.3" position="0 -0.2 0"></a-entity>
 
       <!-- sky -->
       <a-sky color="#ECECEC"></a-sky>
 
       <!-- camera's cursor -->
-      <a-camera>
-        <a-cursor color="#ff0000"/>
-      </a-camera>
+  <a-entity camera="userHeight: 1.6" look-controls wasd-controls></a-entity>
+
     </a-scene>
 
 
