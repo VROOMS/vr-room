@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>VR Room</title>
      <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -158,13 +160,16 @@
                 scale="0.1 0.1 0.1"
                 shadow="receive: false">             
       </a-entity>
-      <a-entity id="karl-sofa" 
-                visible="false"
-                obj-model="obj: #karl-sofa-model;" 
-                material="src: #karl-sofa-tex"
-                scale="0.1 0.1 0.1"
-                shadow="receive: false">             
+      <a-entity id="karl-sofa" visible="false">
+        <a-entity 
+                  rotation="0 180 0"
+                  obj-model="obj: #karl-sofa-model" 
+                  material="src: #karl-sofa-tex"
+                  scale="0.1 0.1 0.1"
+                  shadow="receive: false">             
+        </a-entity>
       </a-entity>
+
       <a-entity id="moto-uplighter" 
                 visible="false"
                 obj-model="obj: #moto-uplighter-model;" 
@@ -246,18 +251,18 @@
   <a-entity id="room" room material="src: assets/textures/wall.jpg" scale-room></a-entity>
 
 
-  <a-entity id="directionalLight" light="type: directional; color: #BBB; intensity: 0.3; castShadow:false" position="3 30 4" rotation="0 0 0"></a-entity>
+<!--   <a-entity id="directionalLight" light="type: directional; color: #BBB; intensity: 0.3; castShadow:false" position="3 30 4" rotation="0 0 0"></a-entity>
   <a-entity id="directionalLight" light="type: directional; color: #BBB; intensity: 0.3; castShadow:false" position="-40 400 -50" rotation="0 0 0"></a-entity>
-
+ -->
   <a-entity light="type: ambient; color: #BBB; intensity:0.9" position="0 0 0"></a-entity>
 
-  <a-entity light="type: point; color: #BBB; intensity:0.3" position="0 -0.2 0"></a-entity>
+  <a-entity light="type: point; color: #BBB; intensity:0.4" position="0 6 0"></a-entity>
 
       <!-- sky -->
       <a-sky color="#ECECEC"></a-sky>
 
       <!-- camera's cursor -->
-  <a-entity camera="userHeight: 1.6" look-controls wasd-controls></a-entity>
+      <a-entity camera="userHeight: 1.6" universal-controls="movementAcceleration:15"></a-entity>
 
     </a-scene>
 
